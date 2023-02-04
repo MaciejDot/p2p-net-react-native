@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "p2p-net-react-native",
-    "slug": "p2p-net-react-native",
+    "name": "p2p net",
+    "slug": "p2p net",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
