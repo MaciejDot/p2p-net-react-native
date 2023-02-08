@@ -26,6 +26,7 @@ import {
     RootTabScreenProps,
 } from '../types'
 import LinkingConfiguration from './LinkingConfiguration'
+import StatisticsScreen from '../screens/Statistics/react/StatisticsScreen'
 
 export default function Navigation({
     colorScheme,
@@ -46,19 +47,20 @@ export default function Navigation({
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
  */
-const Stack = createNativeStackNavigator<RootStackParamList>()
+const Stack = createNativeStackNavigator<any>()
 
 function RootNavigator() {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Statistics">
             <Stack.Screen
                 name="Root"
                 component={BottomTabNavigator}
                 options={{ headerShown: false }}
             />
+            <Stack.Screen name="Statistics" component={StatisticsScreen} />
             <Stack.Screen
                 name="NotFound"
-                component={NotFoundScreen}
+                component={NotFoundScreen as any}
                 options={{ title: 'Oops!' }}
             />
             <Stack.Group screenOptions={{ presentation: 'modal' }}>

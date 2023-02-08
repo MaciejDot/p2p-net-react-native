@@ -16,6 +16,40 @@ const masterService = {
             return 'aidjwidioiwidijawidoj1owopdjoifeuegueweopjfnwopeifpwnefio' // base 16
         },
     },
-    statistics: {},
+    statistics: {
+        getConnectedPeers() {
+            return [
+                {
+                    ip: '127.0.0.1',
+                    port: 16000,
+                    ping: Math.floor(Math.random() * 20),
+                },
+                {
+                    ip: '147.0.0.1',
+                    port: 16000,
+                    ping: Math.floor(Math.random() * 20),
+                },
+                {
+                    ip: '137.0.0.1',
+                    port: 16000,
+                    ping: Math.floor(Math.random() * 20),
+                },
+                ...new Array(Math.floor(Math.random() * 8)).fill({
+                    ip: '137.0.0.1',
+                    port: 16000,
+                    ping: Math.floor(Math.random() * 20),
+                }),
+            ]
+        },
+        getConnectedServers() {
+            return [
+                {
+                    ip: '127.0.0.2',
+                    port: 16000,
+                    ping: Math.floor(Math.random() * 20),
+                },
+            ]
+        },
+    },
 }
 export default masterService
