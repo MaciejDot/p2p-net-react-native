@@ -12,7 +12,7 @@ export default function ConnectedServersPresenter({
             }))
         },
         getTitle() {
-            return 'Connected servers:'
+            return 'Connected servers'
         },
         getIpTitle() {
             return 'Ip'

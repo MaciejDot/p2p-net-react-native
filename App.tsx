@@ -1,18 +1,13 @@
 import React from 'react'
+import { useColorScheme } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-
-import useCachedResources from './hooks/useCachedResources'
-import useColorScheme from './hooks/useColorScheme'
+import 'intl'
+import 'intl/locale-data/jsonp/en'
 import Navigation from './navigation'
 
 export default function App() {
-    const isLoadingComplete = useCachedResources()
     const colorScheme = useColorScheme()
-
-    if (!isLoadingComplete) {
-        return null
-    }
 
     return (
         <SafeAreaProvider>

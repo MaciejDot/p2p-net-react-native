@@ -9,7 +9,9 @@ export default function ConnectedServers() {
 
     return (
         <Card>
-            <Text h4>{getTitle()}</Text>
+            <Text h4 style={styles.title}>
+                {getTitle()}
+            </Text>
             <View style={styles.container}>
                 <Text style={styles.ipTitle}>{getIpTitle()}</Text>
                 <Text style={styles.portTitle}>{getPortTitle()}</Text>
@@ -31,6 +33,9 @@ export default function ConnectedServers() {
 }
 
 const styles = StyleSheet.create({
+    title: {
+        marginBottom: 8,
+    },
     container: {
         flexDirection: 'row',
     },

@@ -12,7 +12,7 @@ export default function ConnectedPeersPresenter({
             }))
         },
         getTitle() {
-            return 'Connected peers:'
+            return 'Connected peers'
         },
         getIpTitle() {
             return 'Ip'

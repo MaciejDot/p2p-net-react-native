@@ -11,23 +11,9 @@ const linking: LinkingOptions<any> = {
     prefixes: [Linking.createURL('/')],
     config: {
         screens: {
-            Root: {
-                screens: {
-                    TabOne: {
-                        screens: {
-                            TabOneScreen: 'one',
-                        },
-                    },
-                    TabTwo: {
-                        screens: {
-                            TabTwoScreen: 'two',
-                        },
-                    },
-                },
-            },
             Statistics: 'statistics',
-            Modal: 'modal',
-            NotFound: '*',
+            YourInfo: 'yourInfo',
+            Ping: 'ping',
         },
     },
 }
