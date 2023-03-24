@@ -81,5 +81,16 @@ const masterService = {
             ]
         },
     },
+    login: {
+        isUserLoggedIn() {
+            return true
+        },
+        registerUser(username: string, password: string): Promise<void> {
+            return new Promise((resolve) => setTimeout(resolve, 2000))
+        },
+        logInUser(username: string, password: string): Promise<void> {
+            return new Promise((resolve, reject) => setTimeout(reject, 2000))
+        },
+    },
 }
 export default masterService
