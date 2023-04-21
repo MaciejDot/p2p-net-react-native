@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import useChatListPresenter from './useChatListPresenter'
 import ChatItem from './ChatItem/react/ChatItem'
-import ChatItemContext from './ChatItem/react/context/ChatITemContext'
+import ChatItemContext from './ChatItem/react/context/ChatItemContext'
 
 export default function ChatListScreen() {
     const { getChatList } = useChatListPresenter()
