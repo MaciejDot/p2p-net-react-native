@@ -10,6 +10,8 @@ import YourInfoScreen from './screens/YourInfo/react/YourInfoScreen'
 import PingScreen from './screens/Ping/react/PingScreen'
 import { useTheme } from '@rneui/themed'
 import LoginScreen from './screens/Login/react/LoginScreen'
+import RegisterScreen from './screens/Register/RegisterScreen'
+import ChatListScreen from './screens/ChatList/react/ChatListScreen'
 
 const Stack = createNativeStackNavigator<any>()
 
@@ -34,6 +36,16 @@ export default function Navigation() {
                     name="Login"
                     component={LoginScreen}
                     options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Register"
+                    component={RegisterScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="ChatList"
+                    component={ChatListScreen}
+                    options={{ title: 'Chats' }}
                 />
                 <Stack.Screen
                     name="YourInfo"

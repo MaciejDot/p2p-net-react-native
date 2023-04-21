@@ -1,21 +1,23 @@
-import { NavigationType } from '../../../../../NavigationType'
+import { NavigationType } from '../../../../NavigationType'
 
-export default function LoginButtonPresenter(
+export default function RegisterButtonPresenter(
     {
         username,
         password,
         setIsLoading,
         isLoading,
+        repeatPassword,
     }: {
         username: string
         password: string
         setIsLoading: (loading: boolean) => void
         isLoading: boolean
+        repeatPassword: string
     },
     {
-        logInUser,
+        registerUser,
     }: {
-        logInUser: (username: string, password: string) => Promise<void>
+        registerUser: (username: string, password: string) => Promise<void>
     },
     navigation: NavigationType,
     { ejectToast }: { ejectToast: (value: string) => void }
@@ -23,24 +25,29 @@ export default function LoginButtonPresenter(
     return {
         onPress() {
             setIsLoading(true)
-            logInUser(username, password)
+            registerUser(username, password)
                 .then(() => {
                     setIsLoading(false)
                     navigation.navigate('ChatList')
                 })
                 .catch(() => {
                     setIsLoading(false)
-                    ejectToast('There was an error loging in...')
+                    ejectToast('There was an error registering...')
                 })
         },
         getLabel() {
-            return 'Log In'
+            return 'Register'
         },
         isLoading() {
             return isLoading
         },
         isDisabled() {
-            return isLoading || !username || !password
+            return (
+                isLoading ||
+                !username ||
+                !password ||
+                repeatPassword !== password
+            )
         },
     }
 }

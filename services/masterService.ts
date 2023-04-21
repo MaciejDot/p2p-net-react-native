@@ -1,3 +1,4 @@
+import ChatListItem from './models/ChatListItem'
 import PingingLog from './models/PingingLog'
 
 // fixture
@@ -90,6 +91,61 @@ const masterService = {
         },
         logInUser(username: string, password: string): Promise<void> {
             return new Promise((resolve, reject) => setTimeout(reject, 2000))
+        },
+    },
+    chatList: {
+        getChatList(): ChatListItem[] {
+            return [
+                {
+                    name: 'Socota',
+                    id: '95da9c6eb3b0482e9231072f41ec59c',
+                    lastMessage: 'Hey, when can we meet again? :)',
+                    wasRead: false,
+                    date: '2023-08-09T12:51:45.090Z',
+                },
+                {
+                    name: 'Random1',
+                    id: '12da9c6eb3b0482e9231072f41ec59c',
+                    lastMessage: 'What?',
+                    wasRead: true,
+                    date: '2023-07-21T12:51:45.090Z',
+                },
+                {
+                    name: 'NotMyName',
+                    id: '92da9c6eb3b0482e9231072f41ec59c',
+                    lastMessage: 'Green',
+                    wasRead: false,
+                    date: '2023-06-01T12:51:45.090Z',
+                },
+                {
+                    name: 'Sebastian',
+                    id: '95da3c6eb3b0482e9231072f41ec59c',
+                    lastMessage: 'Maybe next time',
+                    wasRead: true,
+                    date: '2023-05-22T12:51:45.090Z',
+                },
+                {
+                    name: 'Loki',
+                    id: '95da9c6eb3b0432e9231072f41ec59c',
+                    lastMessage: 'Bye',
+                    wasRead: true,
+                    date: '2023-04-21T12:51:45.090Z',
+                },
+                {
+                    name: 'Asoka',
+                    id: '95da9c6eb3b0483e9231072f41ec59c',
+                    lastMessage: 'I did what u asked for',
+                    wasRead: true,
+                    date: '2023-03-21T12:51:45.090Z',
+                },
+                {
+                    name: 'Naomi',
+                    id: '95da9c6eb3b0482e9231072341ec59c',
+                    lastMessage: 'Yes, i think that too',
+                    wasRead: true,
+                    date: '2022-05-21T12:51:45.090Z',
+                },
+            ]
         },
     },
 }
