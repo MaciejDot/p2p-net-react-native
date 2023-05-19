@@ -1,46 +1,26 @@
-import { Avatar, Text, useTheme } from '@rneui/themed'
+import { Avatar, Text } from '@rneui/themed'
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import useLoginAvatarPresenter from './useLoginAvatarPresenter'
+import useStyles from '../../../../../../useStyles'
 
 export default function LoginAvatar() {
     const { getTitle } = useLoginAvatarPresenter()
-    const styles = useStyles()
+    const styles = useStyles(({ style }) => ({
+        title: {
+            textAlign: 'center',
+            fontSize: style.fontSize('title'),
+            lineHeight: style.lineHeight('title'),
+        },
+        view: {
+            marginBottom: style.spacing(5),
+        },
+    }))
     return (
         <View style={styles.view}>
-            <View style={styles.avatarContainer}>
-                <Avatar
-                    size={128}
-                    rounded
-                    icon={{
-                        name: 'question-answer',
-                        type: 'material',
-                    }}
-                    iconStyle={styles.icon}
-                />
-            </View>
             <Text h2 style={styles.title}>
                 {getTitle()}
             </Text>
         </View>
     )
-}
-
-function useStyles() {
-    const { theme } = useTheme()
-    return StyleSheet.create({
-        title: {
-            textAlign: 'center',
-        },
-        view: {
-            marginBottom: 24,
-        },
-        icon: {
-            backgroundColor: theme.colors.primary,
-        },
-        avatarContainer: {
-            display: 'flex',
-            alignItems: 'center',
-        },
-    })
 }

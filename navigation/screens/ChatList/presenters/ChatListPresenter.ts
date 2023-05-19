@@ -7,7 +7,10 @@ export default function ChatListPresenter({
 }) {
     return {
         getChatList() {
-            return getChatList().map((chat) => ({ ...chat, key: chat.id }))
+            return getChatList().map((value) => ({ value, key: value.id }))
+        },
+        thereArentAnyChats() {
+            return !getChatList().length
         },
     }
 }

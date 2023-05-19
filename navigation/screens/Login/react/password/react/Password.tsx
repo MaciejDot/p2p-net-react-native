@@ -1,6 +1,7 @@
 import { Icon, Input } from '@rneui/themed'
 import React from 'react'
 import usePasswordPresenter from './usePasswordPresenter'
+import useStylesContext from '../../../../../../useStylesContext'
 export default function Password() {
     const {
         getLabel,
@@ -11,6 +12,7 @@ export default function Password() {
         isSecureTextEntry,
         isDisabled,
     } = usePasswordPresenter()
+    const { iconSize } = useStylesContext()
 
     return (
         <Input
@@ -25,7 +27,7 @@ export default function Password() {
                 <Icon
                     name={getIcon()}
                     type="material"
-                    size={20}
+                    size={iconSize('small')}
                     onPress={onVisibilityIconPress}
                 />
             }

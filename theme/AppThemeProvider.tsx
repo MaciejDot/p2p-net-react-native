@@ -12,6 +12,14 @@ export default function AppThemeProvider({
         () =>
             createTheme({
                 mode: mode ?? 'light',
+                lightColors: {
+                    primary: '#c8c0ae',
+                    secondary: '#aec8b0',
+                },
+                darkColors: {
+                    primary: '#373F51',
+                    secondary: '#51374f',
+                },
             }),
         [mode]
     )

@@ -12,11 +12,14 @@ import { useTheme } from '@rneui/themed'
 import LoginScreen from './screens/Login/react/LoginScreen'
 import RegisterScreen from './screens/Register/RegisterScreen'
 import ChatListScreen from './screens/ChatList/react/ChatListScreen'
+import { View } from 'react-native'
+import useStylesContext from '../useStylesContext'
 
 const Stack = createNativeStackNavigator<any>()
 
 export default function Navigation() {
     const { theme } = useTheme()
+    const { fontSize } = useStylesContext()
     return (
         <NavigationContainer
             theme={theme.mode === 'dark' ? DarkTheme : DefaultTheme}
@@ -29,6 +32,8 @@ export default function Navigation() {
                     },
                     headerTitleStyle: {
                         fontWeight: 'bold',
+                        color: 'white',
+                        fontSize: fontSize('subtitle2'),
                     },
                 }}
             >
@@ -45,7 +50,11 @@ export default function Navigation() {
                 <Stack.Screen
                     name="ChatList"
                     component={ChatListScreen}
-                    options={{ title: 'Chats' }}
+                    options={{
+                        title: 'Chats',
+                        headerShown: true,
+                        headerLeft: () => <View />,
+                    }}
                 />
                 <Stack.Screen
                     name="YourInfo"

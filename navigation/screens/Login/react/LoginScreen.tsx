@@ -7,33 +7,35 @@ import { StyleSheet, View } from 'react-native'
 import Username from './username/react/Username'
 import LoginButton from './loginButton/react/LoginButton'
 import CreateNewAccount from './createNewAccount/react/CreateNewAccount'
+import useStyles from '../../../../useStyles'
 
 export default function LoginScreen() {
     const value = useLoginContextInit()
+    const styles = useStyles(({ style }) => ({
+        container: {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            height: '100%',
+        },
+        card: {
+            paddingBottom: style.spacing(3),
+            paddingTop: style.spacing(3),
+            paddingLeft: style.spacing(3),
+            paddingRight: style.spacing(3),
+        },
+    }))
     return (
         <LoginContext.Provider value={value}>
             <View style={styles.container}>
-                <Card containerStyle={styles.card}>
+                <View style={styles.card}>
                     <LoginAvatar />
                     <Username />
                     <Password />
                     <LoginButton />
                     <CreateNewAccount />
-                </Card>
+                </View>
             </View>
         </LoginContext.Provider>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        height: '100%',
-    },
-    card: {
-        paddingBottom: 24,
-        paddingTop: 24,
-    },
-})

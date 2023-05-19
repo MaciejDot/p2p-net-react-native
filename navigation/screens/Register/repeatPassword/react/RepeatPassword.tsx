@@ -1,6 +1,7 @@
 import { Icon, Input } from '@rneui/themed'
 import React from 'react'
 import useRepeatPasswordPresenter from './useRepeatPasswordPresenter'
+import useStylesContext from '../../../../../useStylesContext'
 export default function RepeatPassword() {
     const {
         getLabel,
@@ -12,7 +13,7 @@ export default function RepeatPassword() {
         isDisabled,
         getErrorText,
     } = useRepeatPasswordPresenter()
-
+    const { iconSize } = useStylesContext()
     return (
         <Input
             label={getLabel()}
@@ -27,7 +28,7 @@ export default function RepeatPassword() {
                 <Icon
                     name={getIcon()}
                     type="material"
-                    size={20}
+                    size={iconSize('small')}
                     onPress={onVisibilityIconPress}
                 />
             }

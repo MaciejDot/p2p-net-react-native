@@ -2,11 +2,11 @@ import ChatListItem from '../../../../../../../../services/models/ChatListItem'
 
 export default function LastMessagePresenter({
     lastMessage,
-    wasRead,
+    unreadNumber,
 }: ChatListItem) {
     return {
         isBold() {
-            return !wasRead
+            return unreadNumber > 0
         },
         getLastMessage() {
             return lastMessage
