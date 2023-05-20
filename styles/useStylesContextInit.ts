@@ -53,7 +53,7 @@ export default function useStylesContextInit(): StylesContextModel {
         ) => {
             return {
                 caption: moderateScale(8),
-                paragraph: moderateScale(14),
+                paragraph: moderateScale(16),
                 subtitle1: moderateScale(32),
                 subtitle2: moderateScale(20),
                 title: moderateScale(40),

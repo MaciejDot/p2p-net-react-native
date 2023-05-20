@@ -12,17 +12,17 @@ import LocaleProvider from './locale/LocaleProvider'
 
 export default function App() {
     return (
-        <SafeAreaProvider>
-            <LocaleProvider>
-                <AppThemeProvider>
-                    <StylesProvider>
+        <LocaleProvider>
+            <AppThemeProvider>
+                <StylesProvider>
+                    <SafeAreaProvider>
                         <ToastProvider>
                             <Navigation />
                             <StatusBar />
                         </ToastProvider>
-                    </StylesProvider>
-                </AppThemeProvider>
-            </LocaleProvider>
-        </SafeAreaProvider>
+                    </SafeAreaProvider>
+                </StylesProvider>
+            </AppThemeProvider>
+        </LocaleProvider>
     )
 }

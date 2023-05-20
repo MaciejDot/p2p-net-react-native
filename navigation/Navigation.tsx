@@ -8,13 +8,14 @@ import * as React from 'react'
 import StatisticsScreen from './screens/Statistics/react/StatisticsScreen'
 import YourInfoScreen from './screens/YourInfo/react/YourInfoScreen'
 import PingScreen from './screens/Ping/react/PingScreen'
-import { useTheme } from '@rneui/themed'
+import { Text, useTheme } from '@rneui/themed'
 import LoginScreen from './screens/Login/react/LoginScreen'
 import RegisterScreen from './screens/Register/RegisterScreen'
 import ChatListScreen from './screens/ChatList/react/ChatListScreen'
 import { View } from 'react-native'
 import useStylesContext from '../useStylesContext'
 import useNavigationPresenter from './useNavigationPresenter'
+import ChatScreen from './screens/Chat/ChatScreen'
 
 const Stack = createNativeStackNavigator<any>()
 
@@ -28,7 +29,7 @@ export default function Navigation() {
             theme={theme.mode === 'dark' ? DarkTheme : DefaultTheme}
         >
             <Stack.Navigator
-                initialRouteName="Login"
+                initialRouteName="ChatList"
                 screenOptions={{
                     headerStyle: {
                         backgroundColor: theme.colors.primary,
@@ -73,6 +74,14 @@ export default function Navigation() {
                     name="Statistics"
                     component={StatisticsScreen}
                     options={{ title: getStatistics() }}
+                />
+                <Stack.Screen
+                    name="Chat"
+                    component={ChatScreen}
+                    options={{
+                        title: 'placeholder to be served from master service',
+                        //header: (props) => <Text>{props.route.params.id}</Text>,
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

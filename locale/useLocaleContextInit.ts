@@ -16,7 +16,7 @@ import uk from './locales/uk'
 
 export default function useLocaleContextInit() {
     const i18n = useMemo(() => {
-        const value = new I18n({ en, es, pl, pt, fr, zh, ru, cs, sk, it, uk })
+        const value = new I18n({ en, es, pt, pl, fr, zh, ru, cs, sk, it, uk })
         value.enableFallback = true
         value.defaultLocale = 'en'
         value.locale = locale

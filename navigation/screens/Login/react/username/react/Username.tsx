@@ -9,6 +9,7 @@ export default function Username() {
             value={getValue()}
             onChangeText={onChange}
             textContentType="username"
+            autoComplete="username"
             disabled={isDisabled()}
             autoCorrect={false}
         />

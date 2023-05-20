@@ -21,6 +21,7 @@ export default function Password() {
             onChangeText={onChange}
             textContentType="password"
             autoCorrect={false}
+            autoComplete="password"
             secureTextEntry={isSecureTextEntry()}
             disabled={isDisabled()}
             rightIcon={

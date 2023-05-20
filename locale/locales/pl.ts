@@ -34,5 +34,6 @@ const pl: PartialLocaleConfig = {
     'Connected servers': 'Połączone serwery',
     Ip: 'Ip',
     Port: 'Port',
+    'Write your message here': 'Pisz wiadomość tutaj...',
 }
 export default pl

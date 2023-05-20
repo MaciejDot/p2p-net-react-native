@@ -23,6 +23,7 @@ export default function RepeatPassword() {
             autoCorrect={false}
             errorMessage={getErrorText()}
             secureTextEntry={isSecureTextEntry()}
+            autoComplete="password-new"
             disabled={isDisabled()}
             rightIcon={
                 <Icon

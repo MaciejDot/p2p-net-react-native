@@ -1,9 +1,13 @@
 import ChatListItem from '../../../../../../services/models/ChatListItem'
+import { NavigationType } from '../../../../../NavigationType'
 
-export default function ChatItemPresenter({ id }: ChatListItem) {
+export default function ChatItemPresenter(
+    { id }: ChatListItem,
+    navigation: NavigationType
+) {
     return {
         onPress() {
-            console.log(id)
+            navigation.navigate('Chat', { id })
         },
     }
 }

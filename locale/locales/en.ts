@@ -32,5 +32,9 @@ const en = {
     'Connected servers': 'Connected servers',
     Ip: 'Ip',
     Port: 'Port',
+    'Write your message here': 'Write your message here...',
+    'There is no message history': 'There is no message history',
+    'To start messaging send it thru the send icon right to text input':
+        'To start messaging send it thru the send icon right to text input',
 }
 export default en
