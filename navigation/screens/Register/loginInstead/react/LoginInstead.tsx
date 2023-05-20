@@ -9,6 +9,7 @@ export default function LoginInstead() {
         button: { borderRadius: style.borderRadiusButton('large') },
         container: {
             marginTop: style.spacing(3),
+            borderRadius: style.borderRadiusButton('large'),
         },
     }))
     return (

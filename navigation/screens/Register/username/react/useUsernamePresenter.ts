@@ -1,6 +1,7 @@
+import useLocale from '../../../../../useLocale'
 import useRegisterContext from '../../useRegisterContext'
 import UsernamePresenter from '../presenters/UsernamePresenter'
 
 export default function useUsernamePresenter() {
-    return UsernamePresenter(useRegisterContext())
+    return UsernamePresenter(useRegisterContext(), useLocale())
 }

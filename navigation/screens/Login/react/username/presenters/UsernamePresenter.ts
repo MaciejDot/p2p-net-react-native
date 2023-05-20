@@ -1,12 +1,17 @@
-export default function UsernamePresenter({
-    username,
-    setUsername,
-    isLoading,
-}: {
-    username: string
-    setUsername: (value: string) => void
-    isLoading: boolean
-}) {
+import { LocaleContextModel } from '../../../../../../Locale'
+
+export default function UsernamePresenter(
+    {
+        username,
+        setUsername,
+        isLoading,
+    }: {
+        username: string
+        setUsername: (value: string) => void
+        isLoading: boolean
+    },
+    { translate }: LocaleContextModel
+) {
     return {
         getValue() {
             return username
@@ -15,7 +20,7 @@ export default function UsernamePresenter({
             setUsername(text)
         },
         getLabel() {
-            return 'username'
+            return translate('username')
         },
         isDisabled() {
             return isLoading

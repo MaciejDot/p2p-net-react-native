@@ -1,5 +1,6 @@
 // import Clipboard from '@react-native-clipboard/clipboard'
 import { Clipboard } from 'react-native'
+import { LocaleContextModel } from '../../../../../../Locale'
 
 export default function PingAddressPresenter(
     {
@@ -7,19 +8,20 @@ export default function PingAddressPresenter(
     }: {
         getPingAddress: () => string
     },
-    { ejectToast }: { ejectToast: (message: string) => void }
+    { ejectToast }: { ejectToast: (message: string) => void },
+    { translate }: LocaleContextModel
 ) {
     return {
         getTitleText() {
-            return 'Your ping address'
+            return translate('Your ping address')
         },
         getPingAddress,
         getCopyText() {
-            return 'copy'
+            return translate('copy')
         },
         onCopyPingAddress() {
             Clipboard.setString(getPingAddress())
-            ejectToast('copied to clipboard')
+            ejectToast(translate('copied to clipboard'))
         },
     }
 }

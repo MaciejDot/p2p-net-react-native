@@ -1,16 +1,21 @@
-export default function PasswordPresenter({
-    password,
-    setPassword,
-    isPasswordVisible,
-    setIsPasswordVisibile,
-    isLoading,
-}: {
-    password: string
-    setPassword: (value: string) => void
-    isPasswordVisible: boolean
-    setIsPasswordVisibile: (setter: (value: boolean) => boolean) => void
-    isLoading: boolean
-}) {
+import { LocaleContextModel } from '../../../../../Locale'
+
+export default function PasswordPresenter(
+    {
+        password,
+        setPassword,
+        isPasswordVisible,
+        setIsPasswordVisibile,
+        isLoading,
+    }: {
+        password: string
+        setPassword: (value: string) => void
+        isPasswordVisible: boolean
+        setIsPasswordVisibile: (setter: (value: boolean) => boolean) => void
+        isLoading: boolean
+    },
+    { translate }: LocaleContextModel
+) {
     return {
         getValue() {
             return password
@@ -19,7 +24,7 @@ export default function PasswordPresenter({
             setPassword(text)
         },
         getLabel() {
-            return 'password'
+            return translate('password')
         },
         onVisibilityIconPress() {
             setIsPasswordVisibile((visible) => !visible)

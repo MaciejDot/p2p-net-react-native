@@ -2,6 +2,7 @@ import { useState } from 'react'
 import masterService from '../../../../../../services/masterService'
 import usePingContext from '../../usePingContext'
 import PingInputPresenter from '../presenters/PingInputPresenter'
+import useLocale from '../../../../../../useLocale'
 
 export default function usePingInputPresenter() {
     const { clearPingLog } = usePingContext()
@@ -15,14 +16,17 @@ export default function usePingInputPresenter() {
         masterService.pingTools.isCurrentlyPinging()
     )
 
-    return PingInputPresenter({
-        clearPingLog,
-        isError,
-        setPing,
-        ping,
-        setIsError,
-        setIsDisabled,
-        isDisabled,
-        ...masterService.pingTools,
-    })
+    return PingInputPresenter(
+        {
+            clearPingLog,
+            isError,
+            setPing,
+            ping,
+            setIsError,
+            setIsDisabled,
+            isDisabled,
+            ...masterService.pingTools,
+        },
+        useLocale()
+    )
 }

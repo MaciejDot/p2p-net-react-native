@@ -1,3 +1,4 @@
+import { LocaleContextModel } from '../../../../../../Locale'
 import { NavigationType } from '../../../../../NavigationType'
 
 export default function LoginButtonPresenter(
@@ -18,7 +19,8 @@ export default function LoginButtonPresenter(
         logInUser: (username: string, password: string) => Promise<void>
     },
     navigation: NavigationType,
-    { ejectToast }: { ejectToast: (value: string) => void }
+    { ejectToast }: { ejectToast: (value: string) => void },
+    { translate }: LocaleContextModel
 ) {
     return {
         onPress() {
@@ -30,11 +32,11 @@ export default function LoginButtonPresenter(
                 })
                 .catch(() => {
                     setIsLoading(false)
-                    ejectToast('There was an error loging in...')
+                    ejectToast(translate('There was an error loging in...'))
                 })
         },
         getLabel() {
-            return 'Log In'
+            return translate('Log In')
         },
         isLoading() {
             return isLoading

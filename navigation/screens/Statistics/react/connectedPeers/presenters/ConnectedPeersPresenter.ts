@@ -1,8 +1,13 @@
-export default function ConnectedPeersPresenter({
-    peers,
-}: {
-    peers: { port: number; ip: string; ping: number }[]
-}) {
+import { LocaleContextModel } from '../../../../../../Locale'
+
+export default function ConnectedPeersPresenter(
+    {
+        peers,
+    }: {
+        peers: { port: number; ip: string; ping: number }[]
+    },
+    { translate }: LocaleContextModel
+) {
     return {
         getPeers() {
             return peers.map((peer, key) => ({
@@ -12,16 +17,16 @@ export default function ConnectedPeersPresenter({
             }))
         },
         getTitle() {
-            return 'Connected peers'
+            return translate('Connected peers')
         },
         getIpTitle() {
-            return 'Ip'
+            return translate('Ip')
         },
         getPortTitle() {
-            return 'Port'
+            return translate('Port')
         },
         getPingTitle() {
-            return 'Ping'
+            return translate('Ping')
         },
     }
 }

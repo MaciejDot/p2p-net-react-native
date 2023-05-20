@@ -1,8 +1,13 @@
-export default function ConnectedServersPresenter({
-    servers,
-}: {
-    servers: { ip: string; port: number; ping: number }[]
-}) {
+import { LocaleContextModel } from '../../../../../../Locale'
+
+export default function ConnectedServersPresenter(
+    {
+        servers,
+    }: {
+        servers: { ip: string; port: number; ping: number }[]
+    },
+    { translate }: LocaleContextModel
+) {
     return {
         getServers() {
             return servers.map((server, key) => ({
@@ -12,16 +17,16 @@ export default function ConnectedServersPresenter({
             }))
         },
         getTitle() {
-            return 'Connected servers'
+            return translate('Connected servers')
         },
         getIpTitle() {
-            return 'Ip'
+            return translate('Ip')
         },
         getPortTitle() {
-            return 'Port'
+            return translate('Port')
         },
         getPingTitle() {
-            return 'Ping'
+            return translate('Ping')
         },
     }
 }

@@ -7,7 +7,10 @@ export default function CreateNewAccount() {
     const { getText, onPress, isDisabled } = useCreateNewAccountPresenter()
     const styles = useStyles(({ style }) => ({
         button: { borderRadius: style.borderRadiusButton('large') },
-        container: { marginTop: style.spacing(3) },
+        container: {
+            marginTop: style.spacing(3),
+            borderRadius: style.borderRadiusButton('large'),
+        },
     }))
     return (
         <Button

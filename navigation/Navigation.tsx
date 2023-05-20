@@ -14,12 +14,15 @@ import RegisterScreen from './screens/Register/RegisterScreen'
 import ChatListScreen from './screens/ChatList/react/ChatListScreen'
 import { View } from 'react-native'
 import useStylesContext from '../useStylesContext'
+import useNavigationPresenter from './useNavigationPresenter'
 
 const Stack = createNativeStackNavigator<any>()
 
 export default function Navigation() {
     const { theme } = useTheme()
     const { fontSize } = useStylesContext()
+    const { getChatsText, getPing, getStatistics, getYourInfo } =
+        useNavigationPresenter()
     return (
         <NavigationContainer
             theme={theme.mode === 'dark' ? DarkTheme : DefaultTheme}
@@ -51,7 +54,7 @@ export default function Navigation() {
                     name="ChatList"
                     component={ChatListScreen}
                     options={{
-                        title: 'Chats',
+                        title: getChatsText(),
                         headerShown: true,
                         headerLeft: () => <View />,
                     }}
@@ -59,17 +62,17 @@ export default function Navigation() {
                 <Stack.Screen
                     name="YourInfo"
                     component={YourInfoScreen}
-                    options={{ title: 'Your Info' }}
+                    options={{ title: getYourInfo() }}
                 />
                 <Stack.Screen
                     name="Ping"
                     component={PingScreen}
-                    options={{ title: 'Ping' }}
+                    options={{ title: getPing() }}
                 />
                 <Stack.Screen
                     name="Statistics"
                     component={StatisticsScreen}
-                    options={{ title: 'Statistics' }}
+                    options={{ title: getStatistics() }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

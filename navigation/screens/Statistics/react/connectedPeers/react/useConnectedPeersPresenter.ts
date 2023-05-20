@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from 'react'
 import masterService from '../../../../../../services/masterService'
 import ConnectedPeersPresenter from '../presenters/ConnectedPeersPresenter'
+import useLocale from '../../../../../../useLocale'
 
 export default function useConnectedPeersPresenter() {
     const {
@@ -20,5 +21,5 @@ export default function useConnectedPeersPresenter() {
         }
     }, [])
 
-    return ConnectedPeersPresenter({ peers })
+    return ConnectedPeersPresenter({ peers }, useLocale())
 }

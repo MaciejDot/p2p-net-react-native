@@ -1,6 +1,7 @@
+import useLocale from '../../../../../../useLocale'
 import usePingContext from '../../usePingContext'
 import PingLogPresenter from '../presenters/PingLogPresenter'
 
 export default function usePingLogPresenter() {
-    return PingLogPresenter(usePingContext())
+    return PingLogPresenter(usePingContext(), useLocale())
 }

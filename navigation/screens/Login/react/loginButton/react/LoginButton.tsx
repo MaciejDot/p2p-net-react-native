@@ -8,7 +8,10 @@ export default function LoginButton() {
         useLoginButtonPresenter()
     const styles = useStyles(({ style }) => ({
         button: { borderRadius: style.borderRadiusButton('large') },
-        container: { marginTop: style.spacing(3) },
+        container: {
+            marginTop: style.spacing(3),
+            borderRadius: style.borderRadiusButton('large'),
+        },
     }))
     if (isLoading())
         return (

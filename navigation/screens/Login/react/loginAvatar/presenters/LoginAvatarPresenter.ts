@@ -1,7 +1,11 @@
-export default function LoginAvatarPresenter() {
+import { LocaleContextModel } from '../../../../../../Locale'
+
+export default function LoginAvatarPresenter({
+    translate,
+}: LocaleContextModel) {
     return {
         getTitle() {
-            return 'Log In'
+            return translate('Log In')
         },
     }
 }

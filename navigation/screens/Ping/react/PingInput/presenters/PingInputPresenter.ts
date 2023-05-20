@@ -1,24 +1,29 @@
-export default function PingInputPresenter({
-    ping,
-    setPing,
-    isError,
-    setIsError,
-    clearPingLog,
-    setIsDisabled,
-    startPinging,
-    isDisabled,
-    stopPinging,
-}: {
-    isDisabled: boolean
-    setIsDisabled: (value: boolean) => void
-    isError: boolean
-    setIsError: (value: boolean) => void
-    ping: string
-    clearPingLog: () => void
-    setPing: (value: string) => void
-    startPinging: (address: string) => 'VALID' | 'INVALID'
-    stopPinging: () => void
-}) {
+import { LocaleContextModel } from '../../../../../../Locale'
+
+export default function PingInputPresenter(
+    {
+        ping,
+        setPing,
+        isError,
+        setIsError,
+        clearPingLog,
+        setIsDisabled,
+        startPinging,
+        isDisabled,
+        stopPinging,
+    }: {
+        isDisabled: boolean
+        setIsDisabled: (value: boolean) => void
+        isError: boolean
+        setIsError: (value: boolean) => void
+        ping: string
+        clearPingLog: () => void
+        setPing: (value: string) => void
+        startPinging: (address: string) => 'VALID' | 'INVALID'
+        stopPinging: () => void
+    },
+    { translate }: LocaleContextModel
+) {
     return {
         getValue() {
             return ping
@@ -27,10 +32,10 @@ export default function PingInputPresenter({
             setPing(value)
         },
         getLabel() {
-            return 'remote ping address'
+            return translate('remote ping address')
         },
         getPingButtonText() {
-            return 'start pinging'
+            return translate('start pinging')
         },
         onPingClick() {
             if (startPinging(ping) === 'VALID') {
@@ -46,12 +51,12 @@ export default function PingInputPresenter({
             return isDisabled
         },
         getErrorText() {
-            if (isError) return 'invalid address'
+            if (isError) return translate('invalid address')
 
             return undefined
         },
         getStopPingingText() {
-            return 'stop pinging'
+            return translate('stop pinging')
         },
         onStopPinging() {
             stopPinging()

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import ConnectedServersPresenter from '../presenters/ConnectedServersPresenter'
 import masterService from '../../../../../../services/masterService'
+import useLocale from '../../../../../../useLocale'
 
 export default function useConnectedServersPresenter() {
     const {
@@ -20,5 +21,5 @@ export default function useConnectedServersPresenter() {
         }
     }, [])
 
-    return ConnectedServersPresenter({ servers })
+    return ConnectedServersPresenter({ servers }, useLocale())
 }

@@ -1,3 +1,4 @@
+import { LocaleContextModel } from '../../../../../Locale'
 import { NavigationType } from '../../../../NavigationType'
 
 export default function RegisterButtonPresenter(
@@ -20,7 +21,8 @@ export default function RegisterButtonPresenter(
         registerUser: (username: string, password: string) => Promise<void>
     },
     navigation: NavigationType,
-    { ejectToast }: { ejectToast: (value: string) => void }
+    { ejectToast }: { ejectToast: (value: string) => void },
+    { translate }: LocaleContextModel
 ) {
     return {
         onPress() {
@@ -32,11 +34,11 @@ export default function RegisterButtonPresenter(
                 })
                 .catch(() => {
                     setIsLoading(false)
-                    ejectToast('There was an error registering...')
+                    ejectToast(translate('There was an error registering...'))
                 })
         },
         getLabel() {
-            return 'Register'
+            return translate('Register')
         },
         isLoading() {
             return isLoading

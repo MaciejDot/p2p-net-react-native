@@ -1,18 +1,25 @@
-export default function RepeatPasswordPresenter({
-    repeatPassword,
-    password,
-    setRepeatPassword,
-    isRepeatPasswordVisible,
-    setIsRepeatPasswordVisibile,
-    isLoading,
-}: {
-    password: string
-    repeatPassword: string
-    setRepeatPassword: (value: string) => void
-    isRepeatPasswordVisible: boolean
-    setIsRepeatPasswordVisibile: (setter: (value: boolean) => boolean) => void
-    isLoading: boolean
-}) {
+import { LocaleContextModel } from '../../../../../Locale'
+
+export default function RepeatPasswordPresenter(
+    {
+        repeatPassword,
+        password,
+        setRepeatPassword,
+        isRepeatPasswordVisible,
+        setIsRepeatPasswordVisibile,
+        isLoading,
+    }: {
+        password: string
+        repeatPassword: string
+        setRepeatPassword: (value: string) => void
+        isRepeatPasswordVisible: boolean
+        setIsRepeatPasswordVisibile: (
+            setter: (value: boolean) => boolean
+        ) => void
+        isLoading: boolean
+    },
+    { translate }: LocaleContextModel
+) {
     return {
         getValue() {
             return repeatPassword
@@ -21,11 +28,13 @@ export default function RepeatPasswordPresenter({
             setRepeatPassword(text)
         },
         getLabel() {
-            return 'repeat password'
+            return translate('repeat password')
         },
         getErrorText() {
             if (repeatPassword !== password) {
-                return 'Repeat password and password should be the same'
+                return translate(
+                    'Repeat password and password should be the same'
+                )
             }
         },
         onVisibilityIconPress() {
